@@ -16,7 +16,6 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
-        // --- FORM PANELİ ---
         JPanel formPanel = new JPanel(new GridLayout(8, 2, 5, 5));
         formPanel.setBorder(BorderFactory.createTitledBorder("Yeni Kimlik Ekle"));
         formPanel.setBackground(new Color(240, 240, 240));
@@ -47,7 +46,6 @@ public class Main {
         formPanel.add(new JLabel());
         formPanel.add(ekleBtn);
 
-        // --- TABLO PANELİ ---
         String[] kolonlar = {"ID", "Ad", "Soyad", "TC No", "Doğum", "Cinsiyet", "Adres"};
         tableModel = new DefaultTableModel(kolonlar, 0);
         table = new JTable(tableModel);
@@ -55,7 +53,6 @@ public class Main {
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBorder(BorderFactory.createTitledBorder("Kayıtlı Kimlikler"));
 
-        // --- SİL BUTONU ---
         JButton silBtn = new JButton("Seçili Kaydı Sil");
         silBtn.setBackground(new Color(178, 34, 34));
         silBtn.setForeground(Color.WHITE);
@@ -63,12 +60,10 @@ public class Main {
         JPanel altPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         altPanel.add(silBtn);
 
-        // --- FRAME'E EKLE ---
         frame.add(formPanel, BorderLayout.NORTH);
         frame.add(scrollPane, BorderLayout.CENTER);
         frame.add(altPanel, BorderLayout.SOUTH);
 
-        // --- KAYDET BUTONU ---
         ekleBtn.addActionListener(e -> {
             String ad = adField.getText().trim();
             String soyad = soyadField.getText().trim();
@@ -103,7 +98,6 @@ public class Main {
             tabloYukle();
         });
 
-        // --- SİL BUTONU ---
         silBtn.addActionListener(e -> {
             int row = table.getSelectedRow();
             if (row == -1) {
