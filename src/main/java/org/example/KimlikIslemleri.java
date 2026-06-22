@@ -9,7 +9,6 @@ public class KimlikIslemleri {
 
     private static final String KOLEKSIYON = "kimlikler";
 
-    // Tüm kimlikler getir
     public static List<Kimlik> hepsiniGetir() {
         List<Kimlik> liste = new ArrayList<>();
         try {
@@ -28,7 +27,6 @@ public class KimlikIslemleri {
         return liste;
     }
 
-    // Yeni kimlik ekle
     public static void ekle(Kimlik k) {
         try {
             Firestore db = FireBaseBaglama.getDb();
@@ -39,7 +37,6 @@ public class KimlikIslemleri {
         }
     }
 
-    // Kimlik sil
     public static void sil(String id) {
         try {
             Firestore db = FireBaseBaglama.getDb();
